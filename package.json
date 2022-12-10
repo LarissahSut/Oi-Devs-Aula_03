@@ -1,0 +1,17 @@
+{
+  "name": "aula-03",
+  "version": "1.0.0",
+  "description": "Implementar lista de `todos` baseado em chamada `Api`",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.com:aulas-pablo/fe-js-004-front-end-din-mico/aula-03.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
