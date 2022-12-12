@@ -10,7 +10,7 @@ Lista:
 <!-- - Deve ser implementado um atraso na chamada a `Api` de 2 segundos -->
 <!-- - Equanto não carrega a lista de `todos` deve renderizar um `loading` -->
 <!-- - Assim que a lista terminar de renderizar, o `loading` deve sumir -->
-- Deve existir um botão no header que quando cliado deve emitir um evento que fará novamente a chamada `Api`
+<!-- - Deve existir um botão no header que quando cliado deve emitir um evento que fará novamente a chamada `Api` -->
 
 Link API: https://jsonplaceholder.typicode.com/todos
 

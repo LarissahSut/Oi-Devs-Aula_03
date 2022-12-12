@@ -19,31 +19,48 @@
   const loading = document.querySelector('#loading');
   const reload = document.querySelector('#reload');
 
+
   reload.onclick = async function(event){
     event.preventDefault();
     loading.classList.replace("d-none", "d-flex");
     ul.innerHTML = "";
-    getTodoList();
+    setTimeout(getTodoList, 1000);
     
   }
 
   async function getTodoList(){
     const chamadaTodo = await fetch('https://jsonplaceholder.typicode.com/todos');
     const listaTodo = await chamadaTodo.json(); //array de objetos
-    listaTodo.forEach(({title, id}) => {
+    listaTodo.forEach(({title, id, completed, userId}) => {
       const li = document.createElement("li");
+      const badge = document.createElement("span");
 
-      li.className = "list-group-item";
+      li.className = "list-group-item flex-grow-1";
       li.innerHTML = `${id} - ${title}`;
+
+      badge.innerHTML = `${completed}`;
+      li.append(badge);
       ul.appendChild(li);
       loading.classList.replace("d-flex", "d-none"); // após a api ser carregada trocamos a classe do loading
+
+      if (completed == true) {
+        badge.className = "badge bg-success";
+    } else {
+      badge.className = "badge bg-warning text-dark";
+      }
+
+      return userId;
     });
-  }
+  } 
 
   window.onload =  async function() {
     setTimeout(getTodoList, 2000);
+
   }
 
+  const listali = document.getElementsByTagName("li");
+
+  listali.onclick = console.log("cliquei");
 
   // const loading = document.querySelector("#loading")
   // setTimeout(() => {
