@@ -33,6 +33,8 @@
     const listaTodo = await chamadaTodo.json(); //array de objetos
     listaTodo.forEach(({title, id, completed, userId}) => {
       const li = document.createElement("li");
+      li.setAttribute("data-bs-toggle", "modal")
+      li.setAttribute("data-bs-target", "#modalLindao");
       const badge = document.createElement("span");
 
       li.className = "list-group-item flex-grow-1";
@@ -49,7 +51,14 @@
       badge.className = "badge bg-warning text-dark";
       }
 
-      return userId;
+      li.addEventListener("click", async (e) => {
+        e.preventDefault();
+
+        const usuarioId =  await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+
+        console.log(usuarioId);
+
+      })
     });
   } 
 
@@ -58,9 +67,6 @@
 
   }
 
-  const listali = document.getElementsByTagName("li");
-
-  listali.onclick = console.log("cliquei");
 
   // const loading = document.querySelector("#loading")
   // setTimeout(() => {
