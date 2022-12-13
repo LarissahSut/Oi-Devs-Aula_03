@@ -54,9 +54,18 @@
       li.addEventListener("click", async (e) => {
         e.preventDefault();
 
+        const inputNome = document.getElementById("nomeCompleto");
+        const nomeUsuario = document.getElementById("userName");
+        const emailUsuario = document.getElementById("userEmail");
         const usuarioId =  await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
+        const objetoUsuario = await usuarioId.json();
 
-        console.log(usuarioId);
+        inputNome.value = objetoUsuario.name;
+        nomeUsuario.value = objetoUsuario.username;
+        emailUsuario.value = objetoUsuario.email;
+
+
+        console.log(objetoUsuario);
 
       })
     });
@@ -64,7 +73,6 @@
 
   window.onload =  async function() {
     setTimeout(getTodoList, 2000);
-
   }
 
 
