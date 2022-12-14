@@ -54,7 +54,8 @@ async function getTodoList() {
           emailUsuario.value = objetoUsuario.email;
         } catch (error) {
           form.style.display = "none";
-          modalBody.textContent = "Sinto muito! Usuário não encontrado 😞";
+          modalBody.textContent =
+            "Ops... Infelizmente não encontramos os dados desse usuário 😞";
           modalBody.style.color = "red";
         }
       });
@@ -63,7 +64,7 @@ async function getTodoList() {
     loading.classList.replace("d-flex", "d-none");
     const pMsg = document.createElement("p");
     ul.append(pMsg);
-    pMsg.innerHTML = "Ops... Parece To do List não foi encontrado 😞";
+    pMsg.innerHTML = "Ops... Parece que o To do List está fora do ar 😞";
     pMsg.style.color = "red";
   }
 }
